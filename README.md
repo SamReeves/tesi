@@ -24,4 +24,4 @@ market.
 
 ## Index
 
-*text -- sources I read or cited
+* text -- sources I read or cited
