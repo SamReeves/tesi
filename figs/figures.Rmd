@@ -1,0 +1,48 @@
+
+```{r}
+require(ggplot2)
+require(extrafont)
+loadfonts(device='all')
+```
+
+For a uniform bond traded 20 times:
+
+```{r}
+df <- data.frame(
+  x = c(runif(20, 0, 1), runif(20, 0, 1)),
+  g = gl(2, 100)
+)
+
+fig = ggplot(df, aes(x)) +
+  stat_ecdf(geom = 'step') +
+  xlab('Time to maturity') +
+  ylab('Value paid incl fees') +
+  ggtitle('Uniform cumulative payout') +
+  theme_bw() +
+  theme(text = element_text(size=14, family='Times New Roman'))
+
+show(fig)
+
+ggsave('cdf_inuform.png', plot=fig)
+```
+
+For a normal bond traded 20 times:
+
+```{r}
+df <- data.frame(
+  x = c(rnorm(20, 0, 3), rnorm(20, 0, 10)),
+  g = gl(2, 100)
+)
+
+fig = ggplot(df, aes(x)) +
+  stat_ecdf(geom = 'step') +
+  xlab('Time to maturity') +
+  ylab('Value paid incl fees') +
+  ggtitle('Normal cumulative payout') +
+  theme_bw() +
+  theme(text = element_text(size=14, family='Times New Roman'))
+
+show(fig)
+
+ggsave('cdf_normal.png', plot=fig)
+```
