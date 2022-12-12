@@ -1,5 +1,4 @@
 # @version ^0.3.7
-
 """
 @title Gaussian Currency Future
 @author Sam Reeves
